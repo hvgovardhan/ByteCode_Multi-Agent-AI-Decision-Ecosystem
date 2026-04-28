@@ -1,0 +1,22 @@
+model_list:
+  # Moderator — best reasoning model
+  - model_name: moderator
+    litellm_params:
+      model: gemini/gemini-1.5-flash
+      api_key: os.environ/GEMINI_API_KEY
+
+  # Domain agents — fast inference
+  - model_name: domain-agent
+    litellm_params:
+      model: groq/llama3-8b-8192
+      api_key: os.environ/GROQ_API_KEY
+
+  # Fallback — free OpenRouter models
+  - model_name: fallback
+    litellm_params:
+      model: openrouter/meta-llama/llama-3.1-8b-instruct:free
+      api_key: os.environ/OPENROUTER_API_KEY
+
+litellm_settings:
+  drop_params: true
+  set_verbose: false
